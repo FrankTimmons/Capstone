@@ -5,14 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
   public Transform viewPoint;
-  public float mouseSensitivity = 1f;
+  public float mouseSensitivity = 3f;
   private float verticalRotationStore;
   private Vector2 mouseInput;
+  public bool invertLook;
 
   // Start is called before the first frame update
   void Start()
   {
-
+    Cursor.lockState = CursorLockMode.Locked;
   }
 
   // Update is called once per frame
@@ -26,6 +27,12 @@ public class PlayerController : MonoBehaviour
 
     verticalRotationStore = Mathf.Clamp(verticalRotationStore, -60f, 60f);
 
-    viewPoint.rotation = Quaternion.Euler(verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
+    if (invertLook == true)
+    {
+      viewPoint.rotation = Quaternion.Euler(verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
+    } else
+    {
+      viewPoint.rotation = Quaternion.Euler(-verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
+    }
   }
 }
