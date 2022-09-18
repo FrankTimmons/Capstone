@@ -1047,4 +1047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewPoint: {fileID: 1824901127}
-  mouseSensitivity: 1
+  mouseSensitivity: 3
+  invertLook: 0
+  moveSpeed: 5

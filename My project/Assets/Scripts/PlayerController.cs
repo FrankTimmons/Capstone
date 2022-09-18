@@ -8,7 +8,11 @@ public class PlayerController : MonoBehaviour
   public float mouseSensitivity = 3f;
   private float verticalRotationStore;
   private Vector2 mouseInput;
+
   public bool invertLook;
+
+  public float moveSpeed = 5f;
+  private Vector3 moveDir, movement;
 
   // Start is called before the first frame update
   void Start()
@@ -34,5 +38,11 @@ public class PlayerController : MonoBehaviour
     {
       viewPoint.rotation = Quaternion.Euler(-verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
     }
+
+    moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+    movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized;
+
+    transform.position += movement * moveSpeed * Time.deltaTime;
   }
 }
