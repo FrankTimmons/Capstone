@@ -8,7 +8,7 @@ Let people connect online and battle eachother in a 3d environment.
 ## Minimum Features
 * Online Lobby system
 * Multiplayer connection
-* Some way to battle eachother 
+* First person shooter mechanics 
 
 ## Tools
 * Unity 
@@ -19,6 +19,11 @@ Let people connect online and battle eachother in a 3d environment.
 * Custom models
 * Custom UI
 * Ideal combat system
+
+## Ideal Combat System
+The tutorial I am following goes over how to create a first person shooter multiplayer game, but I'm hoping to refactor it into a melee focused arena fighter a la Smash Bros or the Wii Sports resort Fencing game. Crude diagram: 
+
+![GameDiagram](./Crude-Game-Diagram.jpg)
 
 ## Aditional tools required
 * Blender
