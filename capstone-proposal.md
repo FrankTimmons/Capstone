@@ -1,24 +1,27 @@
-# Online VS Game
+# Iai
 
-## Frank Timmons
+## By Frank Timmons
 
 ## Description
-Let people connect online and battle eachother in a 3d environment.
+Iai will be a melee focused online multiplayer versus game.  It will allow players to connect in a room and battle it out to see who is the best.  The combat will be focused around hitting eachother off of the arena similar to something like Super Smash Brothers, but in first person.  There will be a fluid movement system and a way to chain your moves together in combos.  The multiplayer will be setup using Photon, a multiplayer solution for Unity, and will allow up to 20 concurrent users with the free plan I will be using.
 
 ## Minimum Features
+* Melee Combat
+* A map to fight on
+* A way to win or lose
 * Online Lobby system
 * Multiplayer connection
-* First person shooter mechanics 
 
 ## Tools
 * Unity 
-* Photon
 * C# 
+* Paid Tutorial on Udemy that will supply me with premade assets (3D models, UI designs, sound effects)
+* Photon (unity networking solution that is detailed in the tutorial)
+* Itch.io (webiste for hosting games)
 
 ## Bonus Features
-* Custom models
+* Custom 3D character and weapon models
 * Custom UI
-* Ideal combat system
 
 ## Ideal Combat System
 The tutorial I am following goes over how to create a first person shooter multiplayer game, but I'm hoping to refactor it into a melee focused arena fighter a la Smash Bros or the Wii Sports resort Fencing game. Crude diagram: 
