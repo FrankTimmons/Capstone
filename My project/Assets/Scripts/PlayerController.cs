@@ -17,10 +17,14 @@ public class PlayerController : MonoBehaviour
 
   public CharacterController charCon;
 
+  private Camera cam;
+
   // Start is called before the first frame update
   void Start()
   {
     Cursor.lockState = CursorLockMode.Locked;
+
+    cam = Camera.main;
   }
 
   // Update is called once per frame
@@ -37,7 +41,8 @@ public class PlayerController : MonoBehaviour
     if (invertLook == true)
     {
       viewPoint.rotation = Quaternion.Euler(verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
-    } else
+    } 
+    else
     {
       viewPoint.rotation = Quaternion.Euler(-verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
     }
@@ -47,7 +52,8 @@ public class PlayerController : MonoBehaviour
     if (Input.GetKey(KeyCode.LeftShift))
     {
       activeMoveSpeed = runSpeed;
-    } else
+    } 
+    else
     {
       activeMoveSpeed = moveSpeed;
     }
@@ -55,5 +61,11 @@ public class PlayerController : MonoBehaviour
     movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized;
 
     charCon.Move(movement * activeMoveSpeed * Time.deltaTime);
+  }
+
+  private void LateUpdate()
+  {
+    cam.transform.position = viewPoint.position;
+    cam.transform.rotation = viewPoint.rotation;
   }
 }
