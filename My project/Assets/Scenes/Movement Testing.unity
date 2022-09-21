@@ -946,8 +946,8 @@ GameObject:
   - component: {fileID: 2008213154}
   - component: {fileID: 2008213153}
   - component: {fileID: 2008213152}
-  - component: {fileID: 2008213151}
   - component: {fileID: 2008213155}
+  - component: {fileID: 2008213151}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -955,8 +955,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &2008213151
-CapsuleCollider:
+--- !u!143 &2008213151
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -965,9 +965,13 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  serializedVersion: 2
   m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2008213152
 MeshRenderer:
@@ -1050,3 +1054,4 @@ MonoBehaviour:
   mouseSensitivity: 3
   invertLook: 0
   moveSpeed: 5
+  charCon: {fileID: 2008213151}
