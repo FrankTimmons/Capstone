@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     verticalRotationStore = Mathf.Clamp(verticalRotationStore, -60f, 60f);
 
-    if (invertLook == true)
+    if(invertLook == true)
     {
       viewPoint.rotation = Quaternion.Euler(verticalRotationStore, viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
     } 
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
-    if (Input.GetKey(KeyCode.LeftShift))
+    if(Input.GetKey(KeyCode.LeftShift))
     {
       activeMoveSpeed = runSpeed;
     } 
@@ -68,32 +68,47 @@ public class PlayerController : MonoBehaviour
     movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
     movement.y = yVel;
 
-    if (charCon.isGrounded)
+    if(charCon.isGrounded)
     {
       movement.y = 0f;
     }
 
     isGrounded = Physics.Raycast(groundCheckPoint.position, Vector3.down, .25f, groundLayers);
 
-    if (Input.GetButtonDown("Jump") && isGrounded)
+    if(Input.GetButtonDown("Jump") && isGrounded)
     {
       movement.y = jumpForce;
     }
 
     movement.y += Physics.gravity.y * Time.deltaTime * gravityMod;
-
     charCon.Move(movement * Time.deltaTime);
+
+    if(Input.GetMouseButtonDown(0))
+    {
+      Shoot();
+    }
 
     if (Input.GetKeyDown(KeyCode.Escape))
     {
       Cursor.lockState = CursorLockMode.None;
     } 
-    else if (Cursor.lockState == CursorLockMode.None)
+    else if(Cursor.lockState == CursorLockMode.None)
     {
       if (Input.GetMouseButtonDown(0))
       {
         Cursor.lockState = CursorLockMode.Locked;
       }
+    }
+  }
+
+  private void Shoot()
+  {
+    Ray ray = cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+    ray.origin = cam.transform.position;
+
+    if (Physics.Raycast(ray, out RaycastHit hit))
+    {
+      Debug.Log("We hit " + hit.collider.gameObject.name);
     }
   }
 
