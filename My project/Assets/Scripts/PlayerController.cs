@@ -26,6 +26,12 @@ public class PlayerController : MonoBehaviour
   public LayerMask groundLayers;
 
   public GameObject bulletImpact;
+  public float timeBetweenShots = .1f;
+  private float shotCounter;
+
+  public float maxHeat = 10f, heatPerShot = 1f, coolRate = 4f, overheatCoolRate = 5f;
+  private float heatCounter;
+  private bool overheated;
 
   // Start is called before the first frame update
   void Start()
@@ -85,10 +91,42 @@ public class PlayerController : MonoBehaviour
     movement.y += Physics.gravity.y * Time.deltaTime * gravityMod;
     charCon.Move(movement * Time.deltaTime);
 
-    if(Input.GetMouseButtonDown(0))
+
+
+    if (!overheated)
     {
-      Shoot();
+      if(Input.GetMouseButtonDown(0))
+      {
+        Shoot();
+      }
+
+      if(Input.GetMouseButton(0))
+      {
+        shotCounter -= Time.deltaTime;
+
+        if(shotCounter <= 0)
+        {
+          Shoot();
+        }
+      }
+
+      heatCounter -= coolRate * Time.deltaTime;
+    } else
+    {
+      heatCounter -= overheatCoolRate * Time.deltaTime;
+      if(heatCounter <= 0)
+      {
+        heatCounter = 0;
+        overheated = false;
+      }
     }
+
+    if(heatCounter < 0)
+    {
+      heatCounter = 0;
+    }
+
+
 
     if (Input.GetKeyDown(KeyCode.Escape))
     {
@@ -113,6 +151,17 @@ public class PlayerController : MonoBehaviour
       GameObject bulletImpactObject = Instantiate(bulletImpact, hit.point + (hit.normal * .002f), Quaternion.LookRotation(hit.normal, Vector3.up));
 
       Destroy(bulletImpactObject, 10f);
+    }
+
+    shotCounter = timeBetweenShots;
+
+    heatCounter += heatPerShot; 
+
+    if(heatCounter >= maxHeat)
+    {
+      heatCounter = maxHeat;
+
+      overheated = true;
     }
   }
 
