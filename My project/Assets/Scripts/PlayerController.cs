@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
   private float heatCounter;
   private bool overheated;
 
+  public Gun[] allGuns;
+  private int selectedGun;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
     cam = Camera.main;
 
     UIController.instance.weaponTempSlider.maxValue = maxHeat;
+
+    SwitchGun();
   }
 
   // Update is called once per frame
@@ -65,6 +70,9 @@ public class PlayerController : MonoBehaviour
 
     moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
+
+
+
     if(Input.GetKey(KeyCode.LeftShift))
     {
       activeMoveSpeed = runSpeed;
@@ -73,6 +81,9 @@ public class PlayerController : MonoBehaviour
     {
       activeMoveSpeed = moveSpeed;
     }
+
+
+
 
     float yVel = movement.y;
     movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
@@ -92,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     movement.y += Physics.gravity.y * Time.deltaTime * gravityMod;
     charCon.Move(movement * Time.deltaTime);
+
 
 
 
@@ -131,6 +143,30 @@ public class PlayerController : MonoBehaviour
 
     UIController.instance.weaponTempSlider.value = heatCounter;
 
+
+
+
+    if(Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+    {
+      selectedGun++;
+      if(selectedGun >= allGuns.Length)
+      {
+        selectedGun = 0;
+      }
+      SwitchGun();
+    }else if(Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+    {
+      selectedGun--;
+      if (selectedGun < 0)
+      {
+        selectedGun = allGuns.Length -1;
+      }
+      SwitchGun();
+    }
+
+
+
+
     if (Input.GetKeyDown(KeyCode.Escape))
     {
       Cursor.lockState = CursorLockMode.None;
@@ -143,6 +179,9 @@ public class PlayerController : MonoBehaviour
       }
     }
   }
+
+
+
 
   private void Shoot()
   {
@@ -170,9 +209,22 @@ public class PlayerController : MonoBehaviour
     }
   }
 
+
+
+
   private void LateUpdate()
   {
     cam.transform.position = viewPoint.position;
     cam.transform.rotation = viewPoint.rotation;
+  }
+
+  void SwitchGun()
+  {
+    foreach(Gun gun in allGuns)
+    {
+      gun.gameObject.SetActive(false);
+    }
+
+    allGuns[selectedGun].gameObject.SetActive(true);
   }
 }
