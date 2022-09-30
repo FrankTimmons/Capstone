@@ -2954,6 +2954,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804662842}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoomButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271999, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
