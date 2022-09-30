@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Content: {fileID: 1820248587}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -2942,6 +2942,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1820248587}
     m_Modifications:
+    - target: {fileID: 2172165988263258175, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_text
+      value: room name
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165988263258175, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271984, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Name
       value: Room Button
@@ -3037,6 +3045,35 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2172165989198271999, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
   m_PrefabInstance: {fileID: 1804662838}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1804662840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2172165988263258175, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+  m_PrefabInstance: {fileID: 1804662838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1804662841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2172165989198271984, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+  m_PrefabInstance: {fileID: 1804662838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1804662842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804662841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2499830cbb7024497deda3f0ef6acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 1804662840}
 --- !u!1001 &1810700349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3046,7 +3083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2172165988263258175, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_text
-      value: Leave room
+      value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271984, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Name
@@ -3058,7 +3095,7 @@ PrefabInstance:
       objectReference: {fileID: 1881763526}
     - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LeaveRoom
+      value: CloseRoomBrowser
       objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3164,6 +3201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820248587}
   - component: {fileID: 1820248588}
+  - component: {fileID: 1820248589}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3189,7 +3227,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0003070102}
-  m_SizeDelta: {x: 0, y: 1620.635}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1820248588
 MonoBehaviour:
@@ -3217,6 +3255,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1820248589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820248586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &1827679970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,8 +3485,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 209040820}
   m_HandleRect: {fileID: 209040819}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.42143974
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3605,6 +3657,9 @@ MonoBehaviour:
   roomNameText: {fileID: 1092242698}
   errorScreen: {fileID: 285812552}
   errorText: {fileID: 1985987746}
+  roomBrowserScreen: {fileID: 1583876791}
+  theRoomButton: {fileID: 1804662842}
+  allRoomButtons: []
 --- !u!1 &1985987745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,6 +3930,22 @@ PrefabInstance:
     - target: {fileID: 2172165989198271984, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Name
       value: Find Room Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1881763526}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenRoomBrowser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Launcher, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172165989198271997, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271999, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Pivot.x
