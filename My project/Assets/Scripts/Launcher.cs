@@ -21,6 +21,9 @@ public class Launcher : MonoBehaviourPunCallbacks
   public GameObject createRoomScreen;
   public TMP_InputField roomNameInput;
 
+  public GameObject roomScreen;
+  public TMP_Text roomNameText;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -60,7 +63,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
   public void CreateRoom()
   {
-    if (string.IsNullOrEmpty(roomNameInput.text))
+    if (!string.IsNullOrEmpty(roomNameInput.text))
     {
       RoomOptions options = new RoomOptions();
       options.MaxPlayers = 8;
@@ -71,5 +74,13 @@ public class Launcher : MonoBehaviourPunCallbacks
       loadingText.text = "Creating Room...";
       loadingScreen.SetActive(true);
     }
+  }
+
+  public override void OnJoinedRoom()
+  {
+    CloseMenus();
+
+    roomScreen.SetActive(true);
+    roomNameText.text = PhotonNetwork.CurrentRoom.Name;
   }
 }
