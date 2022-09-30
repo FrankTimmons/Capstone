@@ -3115,7 +3115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2172165988263258175, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_text
-      value: Close
+      value: Close Browser
       objectReference: {fileID: 0}
     - target: {fileID: 2172165989198271984, guid: ba8ae387194ed9b4f87aa096f30f06a4, type: 3}
       propertyPath: m_Name
