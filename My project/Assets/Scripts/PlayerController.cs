@@ -210,10 +210,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
       }
     }
   }
-
-
-
-
+  
   private void Shoot()
   {
     Ray ray = cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
@@ -227,6 +224,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         Debug.Log("Hit " + hit.collider.gameObject.GetPhotonView().Owner.NickName);
 
         PhotonNetwork.Instantiate(playerHitImpact.name, hit.point, Quaternion.identity);
+
+        hit.collider.gameObject.GetPhotonView().RPC("DealDamage", RpcTarget.All, photonView.Owner.NickName);
       } 
       else
       {
@@ -253,6 +252,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     muzzleCounter = muzzleDisplayTime;
   }
 
+  [PunRPC]
+  public void DealDamage(string damager)
+  {
+    Debug.Log("I've been hit by " + damager);
+  }
 
   private void LateUpdate()
   {
