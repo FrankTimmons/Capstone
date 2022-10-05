@@ -224,6 +224,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
       if(hit.collider.gameObject.tag == "Player")
       {
+        Debug.Log("Hit " + hit.collider.gameObject.GetPhotonView().Owner.NickName);
 
         PhotonNetwork.Instantiate(playerHitImpact.name, hit.point, Quaternion.identity);
       } 
