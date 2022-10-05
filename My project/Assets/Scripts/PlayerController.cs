@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     currentHealth = maxHealth;
 
+    UIController.instance.healthSlider.maxValue = maxHealth;
+    UIController.instance.healthSlider.value = currentHealth;
+
     //Transform newTransform = SpawnManager.instance.GetSpawnPoint();
 
     //transform.position = newTransform.position;
@@ -170,8 +173,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
       UIController.instance.weaponTempSlider.value = heatCounter;
 
 
-
-
       if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
       {
         selectedGun++;
@@ -274,9 +275,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         currentHealth = 0;
 
         PlayerSpawner.instance.Die(damager);
-
-
       }
+
+      UIController.instance.healthSlider.value = currentHealth;
     }
   }
 
