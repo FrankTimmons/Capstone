@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
   private float shotCounter;
   public float muzzleDisplayTime;
   private float muzzleCounter;
+  
 
   public float maxHeat = 10f, /*heatPerShot = 1f,*/ coolRate = 4f, overheatCoolRate = 5f;
   private float heatCounter;
@@ -45,6 +46,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
   private int currentHealth;
 
   public Animator anim;
+  public GameObject playerModel;
+
+  public Transform modelGunPoint, gunHolder;
 
   // Start is called before the first frame update
   void Start()
@@ -59,13 +63,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     currentHealth = maxHealth;
 
-    UIController.instance.healthSlider.maxValue = maxHealth;
-    UIController.instance.healthSlider.value = currentHealth;
 
-    //Transform newTransform = SpawnManager.instance.GetSpawnPoint();
+    if (photonView.IsMine)
+    {
+      UIController.instance.healthSlider.maxValue = maxHealth;
+      UIController.instance.healthSlider.value = currentHealth;
 
-    //transform.position = newTransform.position;
-    //transform.rotation = newTransform.rotation;
+      playerModel.SetActive(false);
+    } 
+    else
+    {
+      gunHolder.parent = modelGunPoint;
+      gunHolder.localPosition = Vector3.zero;
+      gunHolder.localRotation = Quaternion.identity;
+    }
   }
 
   // Update is called once per frame
@@ -203,6 +214,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
       }
 
+
+      anim.SetBool("grounded", isGrounded);
+      anim.SetFloat("speed", moveDir.magnitude);
 
 
       if (Input.GetKeyDown(KeyCode.Escape))
