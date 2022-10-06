@@ -98,102 +98,80 @@ Here's why:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* C#
+* Unity
+* Photon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
+## Installation/Prerequesites
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+1. Download the Unity Hub
 
-### Prerequisites
+    Click "Download Unity Hub" at this link: https://unity3d.com/get-unity/download. 
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+2. Download the PUN 2 asset
 
-### Installation
+    Go to this [link](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922) and click "Add to My Assets".  If you don't have a Unity account you will be prompted to make one. 
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+3. Make a Photon account and create a new app
+    
+    Go to the [Photon Website](https://www.photonengine.com/en-US/Photon) and click "TRY PHOTON FREE".  After making an account, go to your dashboard (link in the top right of the page), and click "CREATE A NEW APP".  The only setting you need to change here is the Photon Type.  Change it to PUN. 
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+    You will be taken back to your dashboard and will see a box with your project.  In the middle you will have an "AppId", keep that handy and don't share it with anyone!
+
+4. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/FrankTimmons/Capstone
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+5. Open the project
+
+    In the Unity Hub, make sure you are logged in, and then click the Open button. Navigate to the projects directory and open the "My Project" Folder.
+
+6. Import the Photon Assets
+
+    Once you have the Unity editor open, click the Window tab in the top left and open the Package Manager.  In the top left of the Package Manager window, there will be a "Packages: **** " dropdown.  Make sure to select "My Assets".  Once you are looking at your assets find "PUN 2 - FREE" and click download, then import.  In the import menu, you will see a ton of folders and files.  There will be a couple we want to skip.
+
+    In the PhotonChat, PhotonRealtime, and PhotonUnityNetworking folders, there will be a subfolder called "Demos".  Uncheck all 3 of the demo folders and click import. (Some other files will automatically be unchecked because they are not in the project)
+
+7. Use your photon AppId
+
+    Once you have imported the assets, navigate to the PhotonServerSettings file in Unity:  
+    <pre>
+    Assets  
+    └── Photon  
+        └── PhotonUnityNetworking
+            └── Resources
+                └── PhotonServerSettings </pre>
+    Open this file in the inspector by left clicking it, and add your Photon AppId in the App Id PUN field. 
+
+8. Run the project
+    
+    Ctrl+S to save all your changes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
 ## Roadmap
 
 - [ ] Complete Course
 - [ ] Refactor for melee combat
-- [ ] 
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+- [ ] Add custom assets (3D models, animations, maps, audio)
+- [ ] Publish to Itch.io
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
 
-Frank Timmons - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Frank Timmons - [LinkedIn](https://www.linkedin.com/in/frank-timmons-pdx/) - franktimmonspdx@gmail.com
 
 Project Link: [https://github.com/FrankTimmons/Capstone](https://github.com/FrankTimmons/Capstone)
 
@@ -202,9 +180,10 @@ Project Link: [https://github.com/FrankTimmons/Capstone](https://github.com/Fran
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [Course I followed to build out the base of my game.](https://www.udemy.com/course/unity-online-multiplayer/)
-* [MIT](/LICENSE)
+
+## License
+
+[MIT](/LICENSE)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
