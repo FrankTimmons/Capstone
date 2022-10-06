@@ -73,4 +73,5 @@ crashlytics-build.properties
 
 # Photon APPID
 **/[Aa]ssets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+
 **/[Aa]ssets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset.meta
